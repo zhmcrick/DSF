@@ -62,15 +62,16 @@ if fluorescence_file and derivative_file and metadata_file:
             tm_d_value = None
 
          # Plot Fluorescence
-            st.subheader(f"Fluorescence Plot for Well {well}")
-            fig, ax = plt.subplots()
-            ax.plot(fluorescence_well_data["Temperature"], fluorescence_well_data["Fluorescence"])
-            ax.set_title(f"Fluorescence vs Temperature (Well {well})")
-            ax.set_xlabel("Temperature")
-            ax.set_ylabel("Fluorescence")
+          st.subheader(f"Fluorescence Plot for Well {well}")
+          fig, ax = plt.subplots()
+        
+          ax.plot(fluorescence_well_data["Temperature"], fluorescence_well_data["Fluorescence"])
+          ax.set_title(f"Fluorescence vs Temperature (Well {well})")
+          ax.set_xlabel("Temperature")
+          ax.set_ylabel("Fluorescence")
 
         # Set a constant y-axis limit
-           ax.set_ylim(0, 60000)
+          ax.set_ylim(0, 60000)
 
           ax.text(
              0.95,
@@ -83,7 +84,7 @@ if fluorescence_file and derivative_file and metadata_file:
              bbox=dict(facecolor="white", edgecolor="black", boxstyle="round,pad=0.3"),
 
                 )
-                st.pyplot(fig)
+          st.pyplot(fig)
                 if st.button(f"Save Fluorescence Plot for Well {well}", key=f"save_fluorescence_{well}"):
                     save_figure(fig, f"fluorescence_{well}.png")
 
